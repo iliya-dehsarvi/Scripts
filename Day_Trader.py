@@ -15,11 +15,7 @@ from time import *
 class TradeX:
     def __init__(self):
         self.DFC = dict()
-#        self.SYMBS = yahoo.tickers_dow()+yahoo.tickers_nasdaq()+yahoo.tickers_sp500()
-#        self.SYMBS = yahoo.tickers_nasdaq()
         self.SYMBS = ['AAPL']
-#        print(self.SYMBS)
-
         print(len(self.SYMBS))
         self.S = time()
         self.INDEX = 0
@@ -41,7 +37,6 @@ class TradeX:
         HISTORIC_DATA = yf.download(tickers=SYMB, period=PERIOD, interval='1m')
         DF = pd.DataFrame(HISTORIC_DATA, columns = ('Open', 'High', 'Low', 'Close','', ''))
         del DF['']
-        
         TD = TDClient(apikey='6abf7ab1ba2448a297df16da6e78f960')
         SOCKET = TD.websocket(symbols=SYMB, on_event=self.__TRADE)
         SOCKET.subscribe(['AAPL'])
@@ -52,11 +47,6 @@ class TradeX:
         print(self.INDEX, SYMB, '{:.0f}'.format((time()-self.S)/60))
         self.INDEX += 1
         print(MSG)
-#        print(DF.tail(5))
-#        print('- '*50)
-#        self.DFC[SYMB] = self.DFC[SYMB].append(DF, ignore_index=True)
-#        if self._PATTERN(self.DFC[SYMB], SYMB): pass# and _PREDICT(DFC[SYMB]): print()
-#
     
     def _PATTERN(self, DF, SYMB):
         DFG = DF
@@ -88,35 +78,4 @@ class TradeX:
         fig.update_layout(title=SYMB+' - '+str(self.COUNTER)+' - '+str('{:.0f}'.format((time()-self.S)/60)))
         fig.show()
 
-
-        
-        
 print('\n')
-
-
-#if __name__ == '__main__': X = TradeX()
-
-
-#def __TRADE(MSG):
-#    print(MSG)
-#
-#
-#def _SOCKET(SYMB, PERIOD='5d'):
-#    HISTORIC_DATA = yf.download(tickers=SYMB, period=PERIOD, interval='1m')
-#    DF = pd.DataFrame(HISTORIC_DATA, columns = ('Open', 'High', 'Low', 'Close','', ''))
-#    del DF['']
-#
-#    TD = TDClient(apikey='6abf7ab1ba2448a297df16da6e78f960')
-#    SOCKET = TD.websocket(symbols=SYMB, on_event=__TRADE)
-#    SOCKET.subscribe(['AAPL'])
-#    SOCKET.connect()
-##    SOCKET.keep_alive()
-#
-##        print(DF.tail(5))
-##        print('- '*50)
-##        self.DFC[SYMB] = self.DFC[SYMB].append(DF, ignore_index=True)
-##        if self._PATTERN(self.DFC[SYMB], SYMB): pass# and _PREDICT(DFC[SYMB]): print()
-##
-#
-#
-#_SOCKET('AAPL')
