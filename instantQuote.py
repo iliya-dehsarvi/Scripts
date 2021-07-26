@@ -79,7 +79,7 @@ profits = {}
 url = "https://yahoo-finance-free.p.rapidapi.com/v6/finance/quote"
 headers = {
     'x-rapidapi-host': "yahoo-finance-free.p.rapidapi.com",
-    'x-rapidapi-key': "ffe01c2c87msh2f0ee91f9c03770p15ec73jsneecbb3a5e36a"
+    'x-rapidapi-key': ""
     }
 #....................................................................................
 
