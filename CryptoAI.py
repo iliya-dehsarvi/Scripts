@@ -18,8 +18,8 @@ from time import *
 
 class CryptoAi:
     def __init__(self):
-        API_KEY = 'plJ3OxshNmkTLFlJ0HYKxoJkcL83W2w94eUdozxwSnuVBFPXISmTeGbknFJor2Hf'
-        API_SECRET_KEY = 'OM8fEWa5nu19hB5ex909zSFfgf1JLeM01FULXx3DAkTIRVGln8GeWfRUJyqO8xO2'
+        API_KEY = ''
+        API_SECRET_KEY = ''
         self.CLIENT = Client(API_KEY, API_SECRET_KEY, tld='us')
 #        status = self.CLIENT.get_dust_log()
 #        print(status)
